@@ -1,9 +1,9 @@
 const recordSummaryFile = require('../../helper/cache/summary-cache');
 let markdownTemplate = function () {
     const ACTION_NAME = 'GitHub Profile Views Counter';
-    const ACTION_URL = 'https://github.com/gayanvoice/github-profile-views-counter';
-    const AUTHOR_NAME = 'gayanvoice';
-    const AUTHOR_URL = 'https://github.com/gayanvoice';
+    const ACTION_URL = 'https://github.com/Sabyasachi-Seal/github-profile-views-counter';
+    const AUTHOR_NAME = 'Sabyasachi-Seal';
+    const AUTHOR_URL = 'https://github.com/Sabyasachi-Seal';
     let getDate = function () {
         let date = new Date();
         let time = date.toLocaleString('en-US', { timeZone: 'UTC', hour: 'numeric', minute: 'numeric', hour12: true })
@@ -15,7 +15,7 @@ let markdownTemplate = function () {
         return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${time} UTC`
     }
     let footerComponent = function (actionName, actionUrl, authorName, authorUrl) {
-        let markdown =  `[**Set up ${actionName} for your repositories**](${actionUrl})\n`;
+        let markdown =  ``;
         markdown = markdown + `## ⛔ DO NOT\n`;
         markdown = markdown + `- Do not commit any changes to \`./cache\` directory. This feature helps to integrity of the records for visitors.\n`;
         markdown = markdown + `- The app will automatically stop measuring insights until you revoke those commits.\n`;
@@ -25,9 +25,6 @@ let markdownTemplate = function () {
         markdown = markdown + `- [simple-git](https://www.npmjs.com/package/simple-git) - Handling Git commands.\n`;
         markdown = markdown + `- [node-chart-exec](https://www.npmjs.com/package/node-chart-exec) - Generate graphs.\n`;
         markdown = markdown + `## 📄 License\n`;
-        markdown = markdown + `- Powered by: [${actionName}](${actionUrl})\n`;
-        markdown = markdown + `- Code: [MIT](./LICENSE) © [${authorName}](${authorUrl})\n`;
-        markdown = markdown + `- Data in the \`./cache\` directory: [Open Database License](https://opendatacommons.org/licenses/odbl/1-0/)`;
         return markdown;
     }
     let createSummaryPageTableComponent = async function (fileName, response, insightsRepository) {
@@ -77,14 +74,14 @@ let markdownTemplate = function () {
         let repositoryUrl = `https://github.com/${response[0].ownerLogin}/${insightsRepository}`;
         let svgBadge = `[![Image of ${repositoryUrl}](${repositoryUrl}/blob/master/svg/profile/badge.svg)](${repositoryUrl})`;
         let markdown =  `## [🚀 ${actionName}](${actionUrl})\n`;
-        markdown = markdown + `**${actionName}** is an opensource project that powered entirely by  \`GitHub Actions\` to fetch and store insights of repositories.\n`;
-        markdown = markdown + `It uses \`GitHub API\` to fetch the insight data of your repositories and commits changes into a separate repository.\n\n`
-        markdown = markdown + `The project created and maintained by [gayanvoice](https://github.com/gayanvoice). Don't forget to follow him on [GitHub](https://github.com/gayanvoice), [Twitter](https://twitter.com/gayanvoice), and [Medium](https://gayanvoice.medium.com/).\n\n`;
+        markdown = markdown + `**${actionName}** is a project that powered entirely by  \`GitHub Actions\` to fetch and store insights of repositories.\n`;
+        markdown = markdown + `It uses \`GitHub API\` to fetch the insight data of repositories and commits changes into a separate repository.\n\n`
         markdown = markdown + tableComponent;
-        markdown = markdown + `<small><i>Last updated on ${lastUpdate}</i></small>\n\n`;
-        markdown = markdown +   `## ✂️Copy and 📋 Paste\n`;
+        markdown = markdown + `<div align="center"><small><i>Last updated on ${lastUpdate}</i></small></div>\n\n`;
+        markdown = markdown + `<hr>\n\n`;
         markdown = markdown + `### Total Views Badge\n`;
         markdown = markdown + `${svgBadge}\n\n`;
+        markdown = markdown + `<hr>\n\n`;
         markdown = markdown + `\`\`\`readme\n`;
         markdown = markdown + `${svgBadge}\n`;
         markdown = markdown + `\`\`\`\n`;
