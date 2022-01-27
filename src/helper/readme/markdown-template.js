@@ -145,7 +145,6 @@ let markdownTemplate = function () {
         markdown = markdown + createRepositoryPageTableComponent(views);
         markdown = markdown + `</details>\n`;
         markdown = markdown + `<small><i>Last updated on ${getDate()}</i></small>\n\n`;
-        markdown = markdown + `## ✂️Copy and 📋 Paste\n`;
         markdown = markdown + `### SVG Badge\n`;
         markdown = markdown + `${svgBadge}\n`;
         markdown = markdown + `\`\`\`readme\n`;
