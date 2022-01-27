@@ -24,7 +24,6 @@ let markdownTemplate = function () {
         markdown = markdown + `- [fs-extra](https://www.npmjs.com/package/fs-extra) - Creating directories and files.\n`;
         markdown = markdown + `- [simple-git](https://www.npmjs.com/package/simple-git) - Handling Git commands.\n`;
         markdown = markdown + `- [node-chart-exec](https://www.npmjs.com/package/node-chart-exec) - Generate graphs.\n`;
-        markdown = markdown + `## 📄 License\n`;
         return markdown;
     }
     let createSummaryPageTableComponent = async function (fileName, response, insightsRepository) {
